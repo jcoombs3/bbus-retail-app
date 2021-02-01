@@ -1,0 +1,25 @@
+{
+  "backgrounds": [
+    {
+      "image": "rel:Background Image.png",
+      "size": "cover",
+      "positionX": "center",
+      "positionY": "center",
+      "repeat": "no-repeat"
+    },
+    {
+      "image": "rel:Background-Image1.png",
+      "size": "cover",
+      "positionX": "center",
+      "positionY": "center",
+      "repeat": "no-repeat"
+    },
+    {
+      "image": "rel:Background-Image2.png",
+      "size": "cover",
+      "positionX": "center",
+      "positionY": "center",
+      "repeat": "no-repeat"
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "$schema": "../../../node_modules/@backbase/sdlc-convert/node_modules/@backbase/sdlc-schema/experience.schema.json",
+  "name": "retail-app",
+  "title": "Retail App",
+  "locales": ["en","es"],
+  "properties": {
+    "AccessDeniedPage": "retail-app/login?error=accessdenied",
+    "DefaultLandingPage": "retail-app/select-context",
+    "ErrorPage": "retail-app/error",
+    "LoginPage": "retail-app/redirect",
+    "thumbnailUrl": "/Retail App/"
+  },
+  "contentDirs": {
+    "default": "apps/retail-app/sdlc/content",
+    "shared": "shared"
+  },
+  "cxSources": [
+    "node_modules/@backbase",
+    "dist/provisioning-packages/cx6/retail-app.zip",
+    "collections/collection-bb-web-sdk-1.15.2.zip"
+  ],
+  "environments": {
+    "default": {
+      "authorization": {
+        
+        "authUrl": "http://localhost:8180/auth",
+        "clientId": "bb-web-client",
+        "scope": "openid",
+        "kind": "hybrid",
+        "realm": "backbase",
+        "landingPageUrl": "retail-app/select-context",
+        "loginPageUrl": "retail-app/redirect",
+        "maxInactivityDuration": 300
+      
+      },
+      "entitlements": {
+        "enable": false,
+        "uri": "/accessgroup-presentation-service/client-api/v2/accessgroups/users/permissions/summary"
+      },
+      "provisioning": {
+        "type": "cx",
+        "outputDir": "./dist/experiences/retail-app/remote",
+        "permissions": {
+          "anonymousConsumer": {
+            "ROLE_group_user": "CONSUMER",
+            "ROLE_group_admin": "ADMIN",
+            "ROLE_group_manager": "ADMIN",
+            "ROLE_group_master page designer": "ADMIN",
+            "ROLE_ANONYMOUS": "CONSUMER"
+          },
+          "userConsumer": {
+            "ROLE_group_user": "CONSUMER",
+            "ROLE_group_manager": "ADMIN",
+            "ROLE_group_admin": "ADMIN",
+            "ROLE_group_master page designer": "ADMIN"
+          }
+        },
+        "linkRoot": "",
+        "staticResourcesRoot": "/api/portal/static/items"
+      }
+    }
+  },
+  "menus": {
+    "master-pages": [
+      {
+        "section": "LeanMasterPage",
+        "title": "LeanMasterPage",
+        "page": {
+          "extends": "page-bb-default",
+          "name": "LeanMasterPage",
+          "title": "Lean Master Page",
+          "innerWrapperClass": "bg-gray-light-300",
+          "children": [
+            {
+              "fragment": "./pages/lean-master-page.json"
+            }
+          ]
+        }
+      }
+    ],
+    "special-pages": [
+      {
+        "section": "error",
+        "title": "Error",
+        "permission": "anonymousConsumer",
+        "page": {
+          "extends": "LeanMasterPage",
+          "title": "Something went wrong",
+          "innerWrapperClass": "",
+          "outerWrapperClass": "",
+          "children": [
+            {
+              "fragment": "./pages/error.json"
+            }
+          ]
+        }
+      },
+      
+      {
+        "section": "redirect",
+        "title": "Redirect",
+        "permission": "anonymousConsumer",
+        "page": {
+          "extends": "LeanMasterPage",
+          "title": "Redirect",
+          "children": [
+            {
+              "fragment": "./pages/redirect.json"
+            }
+          ]
+        }
+      },
+      
+      {
+        "section": "consent",
+        "title": "Consent",
+        "permission": "userConsumer",
+        "page": {
+          "extends": "LeanMasterPage",
+          "title": "Consent",
+          "innerWrapperClass": "",
+          "children": [
+            {
+              "fragment": "./pages/consent.json"
+            }
+          ]
+        }
+      },
+      {
+        "section": "self-enrollment",
+        "title": "Self Enrollment",
+        "permission": "anonymousConsumer",
+        "page": {
+          "extends": "LeanMasterPage",
+          "title": "Self Enrollment",
+          "innerWrapperClass": "",
+          "children": [
+            {
+              "fragment": "./pages/self-enrollment.json"
+            }
+          ]
+        }
+      },
+      {
+        "section": "manage-products",
+        "title": "Manage Products",
+        "permission": "userConsumer",
+        "page": {
+          "extends": "LeanMasterPage",
+          "title": "Manage Products",
+          "innerWrapperClass": "",
+          "children": [
+            {
+              "fragment": "./pages/manage-products.json"
+            }
+          ]
+        }
+      },
+      {
+        "section": "select-context",
+        "title": "Select Context",
+        "permission": "anonymousConsumer",
+        "page": {
+          "extends": "LeanMasterPage",
+          "title": "Select Context",
+          "children": [
+            {
+              "fragment": "./pages/select-context.json"
+            }
+          ]
+        }
+      }
+    ],
+    "main": [
+      {
+        "section": "index",
+        "friendlyUrl": "retail-app",
+        "title": "Home",
+        "permission": "userConsumer",
+        "page": {
+          "extends": "LeanMasterPage",
+          "title": "Home",
+          "innerWrapperClass": "",
+          "children": [
+            {
+              "fragment": "./pages/home.json"
+            }
+          ]
+        }
+      },
+      {
+        "type": "menu",
+        "section": "quick-actions",
+        "title": "Quick Actions",
+        "permission": "userConsumer",
+        "children": [
+          {
+            "type": "deep",
+            "title": "Manage Accounts",
+            "deepPath": "my-accounts/manage",
+            "icon": "settings",
+            "permission": "userConsumer"
+          },
+          {
+            "type": "deep",
+            "title": "Set travel notice",
+            "deepPath": "self-service/manage-cards/travel-notice",
+            "icon": "flight",
+            "permission": "userConsumer"
+          },
+          {
+            "type": "deep",
+            "title": "Pay a bill",
+            "deepPath": "billpay/pay-bill",
+            "icon": "receipt",
+            "permission": "userConsumer"
+          },
+          {
+            "type": "deep",
+            "title": "Download statements",
+            "deepPath": "self-service/download-statements",
+            "icon": "description",
+            "permission": "userConsumer"
+          },
+          {
+            "type": "deep",
+            "title": "Manage notifications",
+            "deepPath": "self-service/product-list/manage-notifications",
+            "icon": "notifications-active",
+            "permission": "userConsumer"
+          },
+          {
+            "section": "maps",
+            "url": "https://maps.google.com",
+            "title": "Find branches and ATMS",
+            "icon": "room",
+            "permission": "userConsumer"
+          }
+        ]
+      }
+    ]
+  }
+}

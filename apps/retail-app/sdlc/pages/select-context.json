@@ -1,0 +1,37 @@
+{
+  "name": "container-bb-manageable-area-_-3tnvs8",
+  "extends": "container-bb-manageable-area",
+  "children": [
+    {
+      "name": "bb-retail-app-ang-_-ba13ee4c3ce4",
+      "extends": "bb-retail-app-ang",
+      "area": "0",
+      "children": [
+        {
+          "name": "bb-panel-container-ang-_-3cb3d1fc30b2",
+          "classId": "PanelContainerComponent",
+          "appearance": "card-shadow-1",
+          "cssClasses": "col-10 col-md-6 col-lg-4 col-xl-3 absolute-center",
+          "children": [
+            {
+              "name": "bb-panel-container-ang-_-f508369927ea",
+              "classId": "PanelContainerComponent",
+              "cssClasses": "card-body",
+              "children": [
+                {
+                  "name": "bb-select-context-widget-ang-_-7b6931083010",
+                  "classId": "SelectContextWidgetComponent",
+                  "includeCurrentContext": true,
+                  
+                  "output.back": "navigation-url:redirect",
+                  
+                  "selectContextRedirectPage": "abs:retail-app"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

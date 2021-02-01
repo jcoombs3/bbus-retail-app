@@ -1,0 +1,46 @@
+{
+  "name": "container-bb-manageable-area-_-vyekhg",
+  "extends": "container-bb-manageable-area",
+  "children": [
+    {
+      "name": "bb-retail-app-ang-_-e5c4f41d1c18",
+      "extends": "bb-retail-app-ang",
+      "area": "0",
+      "children": [
+        {
+          "name": "bb-panel-container-ang-_-0c58e89479f0",
+          "classId": "PanelContainerComponent",
+          "cssClasses": "d-flex justify-content-center align-items-center align-content-center text-center h-100vh p-4",
+          "children": [
+            {
+              "name": "bb-content-widget-ang-_-b98dc432e119",
+              "classId": "ContentWidgetComponent",
+              "content-defaultContent": {
+                "kind": "content",
+                "path": "fogg-no-comments-sm.png"
+              }
+            },
+            {
+              "name": "bb-content-widget-ang-_-b635af86fb21",
+              "classId": "ContentWidgetComponent",
+              "content-defaultContent": {
+                "kind": "content",
+                "path": "notFoundText.json"
+              },
+              "imageClasses": "text-center"
+            },
+            {
+              "name": "bb-quick-link-widget-ang-_-a246f3c4d8ce",
+              "classId": "QuickLinkWidgetComponent",
+              "customClassName": "btn btn-primary",
+              "externalURL": "index",
+              "iconName": "",
+              "linkTitle": "Back to homepage",
+              "linkType": "external"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

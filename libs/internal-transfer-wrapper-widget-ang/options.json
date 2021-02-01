@@ -1,0 +1,40 @@
+{
+  "options": {
+    "paymentType": [
+      {
+        "value": "US_DOMESTIC_WIRE",
+        "label": "US Domestic Wire"
+      },
+      {
+        "value": "US_ACH_CREDIT",
+        "label": "ACH Credit Transfer"
+      },
+      {
+        "value": "CHAPS",
+        "label": "UK CHAPS Transfer"
+      },
+      {
+        "value": "FASTER_PAYMENT",
+        "label": "UK Faster Payments"
+      },
+      {
+        "value": "SEPA",
+        "label": "SEPA Credit Transfer"
+      },
+      {
+        "value": "INTERNAL_TRANSFER",
+        "label": "Internal Transfer"
+      }
+    ],
+    "defaultScheme": [
+      {
+        "value": "BBAN",
+        "label": "BBAN"
+      },
+      {
+        "value": "IBAN",
+        "label": "IBAN"
+      }
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "name": "container-bb-manageable-area-_-ftpwae",
+  "extends": "container-bb-manageable-area",
+  "children": [
+    {
+      "name": "bb-retail-app-ang-_-4a1857fec463",
+      "extends": "bb-retail-app-ang",
+      "area": "0",
+      "children": [
+        {
+          "name": "bb-layout-container-flex-ang-_-1b8e30acd38e",
+          "classId": "LayoutContainerComponent",
+          "children": [
+            {
+              "name": "bb-panel-container-ang-_-8a2b77a2bff0",
+              "classId": "PanelContainerComponent",
+              "title": "Branding Area",
+              "children": []
+            },
+            {
+              "name": "bb-panel-container-ang-_-a0896f487cf6",
+              "classId": "PanelContainerComponent",
+              "title": "Right Topbar Area",
+              "children": []
+            },
+            {
+              "name": "bb-panel-container-ang-_-c9b00237113e",
+              "classId": "PanelContainerComponent",
+              "title": "Sidebar Area",
+              "children": []
+            },
+            {
+              "name": "bb-panel-container-ang-_-3ddf0dd68c6f",
+              "classId": "PanelContainerComponent",
+              "title": "Header Area",
+              "children": [
+                {
+                  "name": "bb-heading-widget-ang-_-eace5a7430e5",
+                  "classId": "HeadingWidgetComponent",
+                  "buttonClasses": "btn btn-link mr-auto pl-0",
+                  "buttonTitle": "Back to list",
+                  "customClassName": "justify-content-start",
+                  "heading": "",
+                  "headingClasses": "bg-default",
+                  "iconClasses": "chevron-left",
+                  "output.buttonAction": "navigation-url:/gateway/retail-app/index#/my-accounts"
+                }
+              ]
+            },
+            {
+              "name": "bb-panel-container-ang-_-ce51f8fbf39b",
+              "classId": "PanelContainerComponent",
+              "title": "Main Content Area",
+              "children": [
+                {
+                  "name": "bb-deck-container-ang-_-7607fcb4e044",
+                  "classId": "DeckContainerComponent",
+                  "children": [
+                    {
+                      "name": "bb-panel-container-ang-_-c131983fdc9e",
+                      "classId": "PanelContainerComponent",
+                      "title": "Deck 1",
+                      "route": "",
+                      "children": [
+                        {
+                          "name": "bb-panel-container-ang-_-7d45dcf0e237",
+                          "classId": "PanelContainerComponent",
+                          "cssClasses": "d-block col-lg-10 col-12 mx-auto",
+                          "children": [
+                            {
+                              "name": "bb-product-summary-manage-accounts-widget-ang-_-87c687aee7e2",
+                              "classId": "ProductSummaryManageAccountsWidgetComponent"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

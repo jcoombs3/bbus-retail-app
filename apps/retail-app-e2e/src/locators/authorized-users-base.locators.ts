@@ -1,0 +1,15 @@
+export default {
+  addUserButton: '[data-role="add-button"]',
+  firstName: '[data-role="user-details-first-name"] input',
+  lastName: '[data-role="user-details-last-name"] input',
+  email: '[data-role="user-details-email"] input',
+  confirmEmail: '[data-role="user-details-confirmation-email"] input',
+  phoneNumber: '[data-role="user-details-phone-number"] input',
+  detailsContinueButton: 'button[data-role="user-details-continue-button"]',
+  selectAccountCheckbox: '[data-role="user-accounts-select-all"] span',
+  accountContinueButton: 'button[data-role="user-accounts-continue-button"]',
+  permissionContinueButton: 'button[data-role="user-permissions-continue-button"]',
+  termsCheckbox: '[data-role="user-confirmation-terms-checkbox"] span',
+  confirmButton: '[data-role="user-confirmation-confirm-button"] button',
+  successModal: '[data-role="complete-create-modal-header"]',
+};

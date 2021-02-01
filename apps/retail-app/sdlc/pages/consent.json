@@ -1,0 +1,208 @@
+{
+  "name": "container-bb-manageable-area-_-fy9q4e",
+  "extends": "container-bb-manageable-area",
+  "children": [
+    {
+      "name": "bb-retail-app-ang-_-52da8e6a005e",
+      "extends": "bb-retail-app-ang",
+      "area": "0",
+      "children": [
+        {
+          "name": "bb-layout-container-flex-ang-_-05dc1b9a9927",
+          "classId": "LayoutContainerComponent",
+          "navigationType": "horizontal",
+          "children": [
+            {
+              "name": "bb-panel-container-ang-_-c0062a64368f",
+              "classId": "PanelContainerComponent",
+              "title": "Branding Area",
+              "children": [
+                {
+                  "name": "bb-content-widget-ang-_-56e3cad3baf1",
+                  "classId": "ContentWidgetComponent",
+                  "content-defaultContent": {
+                    "kind": "content",
+                    "path": "logo.svg"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "bb-panel-container-ang-_-1ea9ef4089b6",
+              "classId": "PanelContainerComponent",
+              "title": "Right Topbar Area",
+              "children": []
+            },
+            {
+              "name": "bb-panel-container-ang-_-9a2217e95dd0",
+              "classId": "PanelContainerComponent",
+              "title": "Sidebar Area",
+              "children": []
+            },
+            {
+              "name": "bb-panel-container-ang-_-fc2f214fb1b4",
+              "classId": "PanelContainerComponent",
+              "title": "Header Area",
+              "children": [
+                {
+                  "name": "bb-heading-widget-ang-_-3c425efd46e9",
+                  "classId": "HeadingWidgetComponent",
+                  "heading": "AISP & PISP Consents",
+                  "headingType": "h1"
+                }
+              ]
+            },
+            {
+              "name": "bb-panel-container-ang-_-12096ed337da",
+              "classId": "PanelContainerComponent",
+              "title": "Main Content Area",
+              "children": [
+                {
+                  "name": "bb-panel-container-ang-_-76b0d3b2d911",
+                  "classId": "PanelContainerComponent",
+                  "cssClasses": "d-block mx-3",
+                  "children": [
+                    {
+                      "name": "bb-tab-container-ang-_-6cb32c5113ed",
+                      "classId": "TabContainerComponent",
+                      "children": [
+                        {
+                          "name": "bb-panel-container-ang-_-dcae0c3610e5",
+                          "classId": "PanelContainerComponent",
+                          "title": "Manage Consents",
+                          "route": "manage-consents",
+                          "children": [
+                            {
+                              "name": "bb-deck-container-ang-_-8e69842d4bc2",
+                              "classId": "DeckContainerComponent",
+                              "children": [
+                                {
+                                  "name": "bb-panel-container-ang-_-438f2798611a",
+                                  "classId": "PanelContainerComponent",
+                                  "title": "List",
+                                  "route": "list",
+                                  "children": [
+                                    {
+                                      "name": "bb-panel-container-ang-_-973dc950db0c",
+                                      "classId": "PanelContainerComponent",
+                                      "appearance": "card-shadow-2",
+                                      "cssClasses": "d-block mt-3",
+                                      "children": [
+                                        {
+                                          "name": "bb-consent-list-widget-ang-_-63319b8469ee",
+                                          "classId": "ConsentListWidgetComponent",
+                                          "output.consentId": "navigation:bb-panel-container-ang-_-3adfe644809c"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "name": "bb-panel-container-ang-_-3adfe644809c",
+                                  "classId": "PanelContainerComponent",
+                                  "title": "Details",
+                                  "route": "details",
+                                  "children": [
+                                    {
+                                      "name": "bb-heading-widget-ang-_-d7e31bca83d7",
+                                      "classId": "HeadingWidgetComponent",
+                                      "buttonClasses": "btn btn-link mr-auto pl-0",
+                                      "buttonTitle": "Back to list",
+                                      "headingClasses": "d-none",
+                                      "iconClasses": "arrow-back",
+                                      "output.buttonAction": "navigation:bb-panel-container-ang-_-438f2798611a"
+                                    },
+                                    {
+                                      "name": "bb-panel-container-ang-_-7c49a9a1ba1c",
+                                      "classId": "PanelContainerComponent",
+                                      "appearance": "card-shadow-2",
+                                      "children": [
+                                        {
+                                          "name": "bb-consent-details-widget-ang-_-1d00e6276a8f",
+                                          "classId": "ConsentDetailsWidgetComponent"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "bb-panel-container-ang-_-ba62734f1455",
+                          "classId": "PanelContainerComponent",
+                          "title": "Consent Request",
+                          "route": "consent-request",
+                          "children": [
+                            {
+                              "name": "bb-heading-widget-ang-_-ce118387cc4b",
+                              "classId": "HeadingWidgetComponent",
+                              "buttonClasses": "btn btn-primary mr-auto ml-4",
+                              "buttonTitle": "Simulate Consent Request",
+                              "customClassName": "page-heading-primary page-heading-wrapped",
+                              "heading": "Consent Request",
+                              "headingType": "h2",
+                              "output.buttonAction": "navigation-url:/retail-app/consent#/consent-request;consentRequestId=442f7920-6b91-461c-b9a0-9a7d638fa61a"
+                            },
+                            {
+                              "name": "bb-panel-container-ang-_-73e52c4c6df9",
+                              "classId": "PanelContainerComponent",
+                              "appearance": "card-shadow-2",
+                              "cssClasses": "d-block mx-auto p-5 col-12 col-md-6 col-lg-4",
+                              "children": [
+                                {
+                                  "name": "bb-consent-request-widget-ang-_-3989acaac915",
+                                  "classId": "ConsentRequestWidgetComponent"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "bb-panel-container-ang-_-9361a54642ff",
+                          "classId": "PanelContainerComponent",
+                          "title": "Payment Request",
+                          "route": "payment-request",
+                          "children": [
+                            {
+                              "name": "bb-heading-widget-ang-_-9209ef6280fc",
+                              "classId": "HeadingWidgetComponent",
+                              "buttonClasses": "btn btn-primary mr-auto ml-3",
+                              "buttonTitle": "Simulate Payment Request",
+                              "customClassName": "page-heading-primary page-heading-wrapped",
+                              "heading": "Payment Request",
+                              "headingType": "h2",
+                              "output.buttonAction": "navigation-url:/retail-app/consent#/payment-request;paymentRequestId=442f7920-6b91-461c-b9a0-9a7d638fa61a"
+                            },
+                            {
+                              "name": "bb-panel-container-ang-_-b34b5e039188",
+                              "classId": "PanelContainerComponent",
+                              "appearance": "card-shadow-2",
+                              "cssClasses": "d-block mx-auto p-5 col-12 col-md-6 col-lg-4",
+                              "children": [
+                                {
+                                  "name": "bb-payment-request-widget-ang-_-e2baf35d68c5",
+                                  "classId": "PaymentRequestWidgetComponent"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "bb-panel-container-ang-_-46d9b6e25279",
+          "classId": "PanelContainerComponent",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

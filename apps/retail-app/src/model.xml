@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+  <container>
+    <name>bb-retail-app-ang</name>
+    <properties>
+      <property name="AppConfig.googleAPIKey" label="Google API Key" type="string" viewHint="admin,text-input">
+        <value></value>
+      </property>
+    </properties>
+  </container>
+</catalog>

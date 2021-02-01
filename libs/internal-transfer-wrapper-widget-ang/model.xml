@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+  <widget>
+    <name>bb-internal-transfer-wrapper-widget-ang</name>
+    <properties>
+      <property name="classId">
+        <value>InternalTransferWrapperWidgetAngComponent</value>
+      </property>
+      <property name="src">
+        <value>$(itemRoot)/index.html</value>
+      </property>
+      <property name="render.requires">
+        <value>render-bb-widget-3</value>
+      </property>
+      <property name="title" label="Title" readonly="true" viewHint="admin,designModeOnly">
+        <value type="string">Internal Transfer Wrapper Widget</value>
+      </property>
+      <property name="thumbnailUrl">
+        <value>$(itemRoot)/icon.png</value>
+      </property>
+      <property name="label">
+        <value>Angular InternalTransferWrapperWidgetAng Widget</value>
+      </property>
+      <property name="paymentType" label="Select a payment type" viewHint="select-one,admin,designModeOnly">
+        <value type="string"></value>
+      </property>
+      <property name="options">
+        <value>$(itemRoot)/options.json</value>
+      </property>
+      <property name="defaultScheme" label="Default Scheme" viewHint="select-one,admin,designModeOnly">
+        <value type="string">BBAN</value>
+      </property>
+      <property name="enableApprovals" label="Enable payment approval" viewHint="checkbox,admin">
+        <value type="boolean">false</value>
+      </property>
+    </properties>
+  </widget>
+</catalog>

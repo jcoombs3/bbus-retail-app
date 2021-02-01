@@ -1,0 +1,260 @@
+<ng-container *ngIf="paymentType$ | async as paymentType; else defaultTmpl">
+  <bb-payord-omni-payment-widget-ang
+    [paymentConfig]="getPaymentConfig(paymentType)"
+    [businessFunction]="getBusinessFunction(paymentType)"
+    [options]="(options$ | async) || {}"
+    [reviewTemplate]="rt"
+  ></bb-payord-omni-payment-widget-ang>
+</ng-container>
+<ng-template #defaultTmpl>
+  <bb-payord-omni-payment-widget-ang></bb-payord-omni-payment-widget-ang>
+</ng-template>
+
+<ng-template let-payment let-status="status" let-paymentConfig="paymentConfig" let-methods="methods" #rt>
+  <fieldset class="bb-fieldset">
+    <legend class="bb-label bb-block bb-block--md" i18n="@@omni-payment-wrapper-review-page-title.label">Review and submit</legend>
+    <ng-container *ngIf="payment">
+      <bb-alert-ui
+        title=""
+        (close)="false"
+        modifier="success"
+        *ngIf="status === 'SUCCESS'"
+      >
+        <span
+          data-role="success-message"
+          i18n="@@omni-payment-wrapper-review-payment-success-alert.label"
+        >
+          Payment submitted successfully.
+        </span>
+      </bb-alert-ui>
+
+      <bb-alert-ui
+        title=""
+        (close)="false"
+        modifier="error"
+        *ngIf="status === 'ERROR'"
+      >
+        <span
+          data-role="failure-message"
+          i18n="@@omni-payment-wrapper-review-payment-failed-alert.label">
+          Failed to submit payment. Please try again later.
+        </span>
+      </bb-alert-ui>
+
+      <div
+        *ngIf="payment?.isIntraLegalEntity"
+        class="bb-block bb-block--sm bb-inline-stack bb-text-support">
+        <div class="bb-inline-stack__item">
+          <bb-icon-ui name="domain"></bb-icon-ui>
+        </div>
+        <div class="bb-inline-stack__item bb-text-bold" i18n="@@omni-payment-wrapper-review-payment-intra-company-payment.label">Intracompany payment</div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 bb-block bb-block--md">
+          <bb-payment-initiator-details [data]="payment?.initiator" [paymentConfig]="paymentConfig">
+          </bb-payment-initiator-details>
+        </div>
+
+        <div class="col-md-6 bb-block bb-block--md">
+          <bb-creditor-account [data]="payment?.counterparty" [paymentConfig]="paymentConfig">
+          </bb-creditor-account>
+        </div>
+      </div>
+
+      <div class="bb-block bb-block--md">
+        <bb-payment-remittance-details
+          [data]="payment?.remittanceInfo"
+          [transferFee]="payment?.transferFee"
+          [chargeBearer]="payment?.chargeBearer"
+          [forexDetails]="methods.getForexDetails(payment)"
+          [paymentConfig]="paymentConfig"
+        ></bb-payment-remittance-details>
+      </div>
+
+      <bb-payment-creditor-details
+        [data]="payment?.counterparty"
+        [paymentConfig]="paymentConfig"
+      ></bb-payment-creditor-details>
+
+      <hr />
+
+      <bb-payment-counterparty-details
+        [data]="payment?.counterparty"
+        [paymentConfig]="paymentConfig"
+      ></bb-payment-counterparty-details>
+
+      <bb-payment-schedule-details
+        [data]="payment?.schedule"
+        [paymentConfig]="paymentConfig"
+      ></bb-payment-schedule-details>
+
+      <div
+        *ngIf="payment?.remittanceInfo?.description
+        || payment?.remittanceInfo?.paymentReference
+        || payment?.counterparty.messageToBank
+        || payment?.counterparty.remittanceInformation"
+        >
+        <hr />
+        <div class="bb-block bb-block--md" *ngIf="payment?.remittanceInfo?.paymentReference">
+          <div
+            class="bb-text-bold"
+            data-role="payment-reference-label"
+          >
+            <bb-payord-dynamic-label
+              name="paymentReference"
+              [config]="paymentConfig"
+              parentName="remittanceInfo"
+              defaultLabel="Payment reference"
+              i18n-defaultLabel="@@omni-payment-wrapper-review-remittance-info-payment-reference.label"
+            ></bb-payord-dynamic-label>
+          </div>
+          <div class="break-word" data-role="payment-reference">
+            {{ payment?.remittanceInfo?.paymentReference }}
+          </div>
+        </div>
+
+        <div class="bb-block bb-block--md" *ngIf="payment?.remittanceInfo?.description">
+          <div
+            class="bb-text-bold"
+            data-role="payment-description-label"
+          >
+            <bb-payord-dynamic-label
+              name="description"
+              [config]="paymentConfig"
+              parentName="remittanceInfo"
+              defaultLabel="Description"
+              i18n-defaultLabel="@@omni-payment-wrapper-review-remittance-info-description.label"
+            ></bb-payord-dynamic-label>
+          </div>
+          <div class="break-word" data-role="payment-description">
+            {{ payment?.remittanceInfo?.description }}
+          </div>
+        </div>
+
+        <div class="bb-block bb-block--md" *ngIf="payment?.counterparty.remittanceInformation">
+          <div class="bb-text-bold">
+            <bb-payord-dynamic-label
+              name="remittanceInformation"
+              [config]="paymentConfig"
+              defaultLabel="Message to beneficiary"
+              i18n-defaultLabel="@@omni-payment-wrapper-review-counterparty-message-to-beneficiary.label"
+            ></bb-payord-dynamic-label>
+          </div>
+          <div class="break-word">{{payment?.counterparty?.remittanceInformation}}</div>
+        </div>
+
+        <div class="bb-block bb-block--md" *ngIf="payment?.messageToBank || payment?.counterparty?.messageToBank">
+          <div class="bb-text-bold">
+            <bb-payord-dynamic-label
+              name="messageToBank"
+              [config]="paymentConfig"
+              defaultLabel="Message to beneficiary bank"
+              i18n-defaultLabel="@@omni-payment-wrapper-review-message-to-bank.label"
+            ></bb-payord-dynamic-label>
+          </div>
+          <div class="break-word">{{payment?.counterparty?.messageToBank || payment?.messageToBank}}</div>
+        </div>
+      </div>
+    </ng-container>
+  </fieldset>
+
+  <div>
+    <ng-container *ngIf="status !== 'SUCCESS' && status !== 'ERROR' else newPayment">
+      <div class="bb-button-bar bb-button-bar--reverse">
+        <button
+          bbButton
+          class="bb-button-bar__button"
+          data-role="submit-button"
+          (click)="methods.submit()"
+          [disabled]="methods.isSubmitting$() | async"
+          *ngIf="!methods.isApprovalEnabled()"
+          i18n="@@omni-payment-wrapper-review-btn-group-submit-payment.label"
+        >
+          Submit
+        </button>
+        <div class="btn-group bb-button-bar__button" data-role="button-group" *ngIf="methods.isApprovalEnabled()">
+          <bb-load-button-ui
+            color="primary"
+            [isLoading]="methods.isSubmitting$() | async"
+            (click)="methods.submit()"
+            i18n="@@omni-payment-wrapper-review-btn-group-submit-payment.label">
+              Submit
+          </bb-load-button-ui>
+
+          <bb-dropdown-menu-ui
+            class="btn-group"
+            btnColor="primary"
+            icon="caret-down"
+            data-role="dropdown-menu"
+            container="body"
+            position="top-right"
+          >
+            <ng-template bbDropdownMenuItem>
+              <button
+                role="menuitem"
+                type="button"
+                class="dropdown-item"
+                data-role="bus-submit-and-approve-button"
+                [disabled]="methods.isSubmitting$() | async"
+                (bbKeyboardClick)="methods.submit(true)"
+                i18n="@@omni-payment-wrapper-review-btn-group-submit-and-approve-payment.label">
+                Submit and Approve
+              </button>
+            </ng-template>
+          </bb-dropdown-menu-ui>
+        </div>
+        <button
+          class="bb-button-bar__button"
+          bbButton
+          color="secondary"
+          data-role="edit-button"
+          (click)="methods.edit()"
+          [disabled]="methods.isSubmitting$() | async"
+          i18n="@@omni-payment-wrapper-review-btn-group-edit-payment.label"
+        >
+          Edit
+        </button>
+        <button
+          bbButton
+          class="bb-button-bar__button bb-button-bar__button--across"
+          color="link"
+          data-role="cancel-button"
+          (click)="methods.toggleDiscardDialog()"
+          [disabled]="methods.isSubmitting$() | async"
+          i18n="@@omni-payment-wrapper-review-btn-group-discard-payment.label"
+        >
+          Discard
+        </button>
+      </div>
+    </ng-container>
+
+    <ng-template #newPayment>
+      <div class="bb-button-bar bb-button-bar--reverse">
+        <button
+          bbButton
+          class="bb-button-bar__button"
+          data-role="new-payment-button"
+          *ngIf="status"
+          (click)="methods.reset()"
+          [disabled]="methods.isSavingTemplate$() | async"
+          i18n="@@omni-payment-wrapper-review-btn-group-new-payment.label"
+        >
+          New Payment
+        </button>
+        <button
+          *ngIf="status === 'SUCCESS' && methods.isPaymentTemplateEnabled()"
+          bbButton
+          color="secondary"
+          class="bb-button-bar__button"
+          data-role="save-as-template-button"
+          (click)="methods.openTemplateModal()"
+          [disabled]="methods.isTemplateSaved()"
+          i18n="@@omni-payment-wrapper-review-btn-group-save-as-template.label"
+        >
+          Save as a template
+        </button>
+      </div>
+    </ng-template>
+  </div>
+</ng-template>

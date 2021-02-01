@@ -1,0 +1,214 @@
+{
+  "name": "container-bb-manageable-area-_-opejti",
+  "extends": "container-bb-manageable-area",
+  "children": [
+    {
+      "name": "bb-retail-app-ang-_-71db8e72cda5",
+      "extends": "bb-retail-app-ang",
+      "area": "0",
+      "children": [
+        {
+          "name": "bb-layout-container-flex-ang-_-0ac122071983",
+          "classId": "LayoutContainerComponent",
+          "navigationType": "horizontal",
+          "children": [
+            {
+              "name": "bb-panel-container-ang-_-67bf46f3a97b",
+              "classId": "PanelContainerComponent",
+              "title": "Branding Area",
+              "children": [
+                {
+                  "name": "bb-content-widget-ang-_-208c77c14561",
+                  "classId": "ContentWidgetComponent",
+                  "content-defaultContent": {
+                    "kind": "content",
+                    "path": "logo.svg"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "bb-panel-container-ang-_-f4a261ec4a9e",
+              "classId": "PanelContainerComponent",
+              "title": "Right Topbar Area",
+              "children": []
+            },
+            {
+              "name": "bb-panel-container-ang-_-7b37cd998986",
+              "classId": "PanelContainerComponent",
+              "title": "Sidebar Area",
+              "children": []
+            },
+            {
+              "name": "bb-panel-container-ang-_-d50ca968fcac",
+              "classId": "PanelContainerComponent",
+              "title": "Header Area",
+              "children": []
+            },
+            {
+              "name": "bb-panel-container-ang-_-5a0aae23d94d",
+              "classId": "PanelContainerComponent",
+              "title": "Main Content Area",
+              "cssClasses": "d-block bg-gray-light-300",
+              "children": [
+                {
+                  "name": "bb-deck-container-ang-_-a52cc77efd8a",
+                  "classId": "DeckContainerComponent",
+                  "children": [
+                    {
+                      "name": "bb-panel-container-ang-_-a2ae6f2df984",
+                      "classId": "PanelContainerComponent",
+                      "title": "Enroll",
+                      "route": "enroll",
+                      "children": [
+                        {
+                          "name": "bb-panel-container-ang-_-304716cbe5d1",
+                          "classId": "PanelContainerComponent",
+                          "children": [
+                            {
+                              "name": "bb-heading-widget-ang-_-815c3b7395f1",
+                              "classId": "HeadingWidgetComponent",
+                              "customClassName": "px-0",
+                              "heading": "Setup online access",
+                              "headingType": "h1"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "bb-panel-container-ang-_-1096dc9fc26e",
+                          "classId": "PanelContainerComponent",
+                          "cssClasses": "d-block col-5 mx-auto pb-5 pt-3",
+                          "children": [
+                            {
+                              "name": "bb-panel-container-ang-_-f8bba848d4f1",
+                              "classId": "PanelContainerComponent",
+                              "cssClasses": "d-block mb-5 px-5",
+                              "children": [
+                                {
+                                  "name": "bb-navigation-stepper-widget-ang-_-363270e0cdfc",
+                                  "classId": "NavigationStepperWidgetComponent",
+                                  "sourceRoutesName": "bb-deck-container-ang-_-0a70bc419138"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "bb-panel-container-ang-_-270f79b129cf",
+                              "classId": "PanelContainerComponent",
+                              "children": [
+                                {
+                                  "name": "bb-deck-container-ang-_-0a70bc419138",
+                                  "classId": "DeckContainerComponent",
+                                  "children": [
+                                    {
+                                      "name": "bb-panel-container-ang-_-dacf846f0b8f",
+                                      "classId": "PanelContainerComponent",
+                                      "title": "Identification",
+                                      "route": "identification",
+                                      "children": [
+                                        {
+                                          "name": "bb-self-enrollment-identification-widget-ang-_-309f9f89f870",
+                                          "classId": "SelfEnrollmentIdentificationWidgetComponent",
+                                          
+                                          "output.cancel": "navigation-url:redirect",
+                                          
+                                          "output.complete": "navigation:bb-panel-container-ang-_-1369bb9b1f58"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "name": "bb-panel-container-ang-_-1369bb9b1f58",
+                                      "classId": "PanelContainerComponent",
+                                      "title": "Verification",
+                                      "route": "verification",
+                                      "children": [
+                                        {
+                                          "name": "bb-self-enrollment-verification-widget-ang-_-b868559512e9",
+                                          "classId": "SelfEnrollmentVerificationWidgetComponent",
+                                          
+                                          "output.cancel": "navigation-url:redirect",
+                                          
+                                          "output.complete": "navigation:bb-panel-container-ang-_-6cea00d7ccd6",
+                                          "output.lock": "navigation:bb-panel-container-ang-_-1b16aeb5a937"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "name": "bb-panel-container-ang-_-6cea00d7ccd6",
+                                      "classId": "PanelContainerComponent",
+                                      "title": "Create Account",
+                                      "route": "create-account",
+                                      "children": [
+                                        {
+                                          "name": "bb-self-enrollment-create-account-widget-ang-_-898a4a142d89",
+                                          "classId": "SelfEnrollmentCreateAccountWidgetComponent",
+                                          
+                                          "output.cancel": "navigation-url:redirect",
+                                          "output.login": "navigation-url:redirect",
+                                          
+                                          "output.complete": "navigation:bb-panel-container-ang-_-05b07f1bf4d0"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "bb-panel-container-ang-_-1b16aeb5a937",
+                      "classId": "PanelContainerComponent",
+                      "title": "Locked Out",
+                      "route": "locked-out",
+                      "children": [
+                        {
+                          "name": "bb-panel-container-ang-_-1e780dc331b6",
+                          "classId": "PanelContainerComponent",
+                          "cssClasses": "d-block col-5 mx-auto py-5",
+                          "children": [
+                            {
+                              "name": "bb-self-enrollment-locked-out-widget-ang-_-b11440d1c488",
+                              "classId": "SelfEnrollmentLockedOutWidgetComponent",
+                              
+                              "output.exit": "navigation-url:redirect",
+                              "output.info": "navigation-url:redirect"
+                              
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "bb-panel-container-ang-_-05b07f1bf4d0",
+                      "classId": "PanelContainerComponent",
+                      "title": "Confirmation",
+                      "route": "confirmation",
+                      "children": [
+                        {
+                          "name": "bb-panel-container-ang-_-83a50de30f8e",
+                          "classId": "PanelContainerComponent",
+                          "cssClasses": "d-block col-5 mx-auto py-5",
+                          "children": [
+                            {
+                              "name": "bb-self-enrollment-confirmation-widget-ang-_-8d391adaf8d6",
+                              "classId": "SelfEnrollmentConfirmationWidgetComponent",
+                              
+                              "output.complete": "navigation-url:redirect"
+                              
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
